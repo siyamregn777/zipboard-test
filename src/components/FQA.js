@@ -38,8 +38,8 @@ const FQA = () => {
 
   return (
     <div className="min-h-screen md:p-10 sm:p-5 rounded-lg shadow-lg bg-white dark:bg-gray-900 transition-colors duration-300">
-      <h1 className="text-center mb-5 text-2xl text-pink-800 dark:text-pink-400">
-        Frequently asked questions
+      <h1 className="text-center mb-5 text-3xl text-pink-800 dark:text-pink-400">
+        Frequently asked <span className="text-pink-500">questions</span>
       </h1>
       {frequent.map((item) => (
         <div
@@ -51,14 +51,17 @@ const FQA = () => {
             onClick={() => toggle(item.id)}
           >
             <h3 className="text-lg font-semibold">{item.question}</h3>
-            <span className="text-xl font-bold">{openId === item.id ? '-' : '+'}</span>
+            <span className="text-xl font-bold">
+              {openId === item.id ? "-" : "+"}
+            </span>
           </div>
           {openId === item.id && (
             <p className="mt-4 text-gray-600 dark:text-gray-300 text-left">
-              Lorem ipsum dolor sit amet consectetur. Enim ut justo quis lobortis arcu facilisis. 
-              Eu dictum lacinia leo massa sit eget id. At consequat molestie lorem integer adipiscing 
-              elementum eros dolor. Sit est aliquam diam nunc gravida massa nibh risus. Turpis lectus 
-              scelerisque amet velit rhoncus metus morbi. 
+              Lorem ipsum dolor sit amet consectetur. Enim ut justo quis
+              lobortis arcu facilisis. Eu dictum lacinia leo massa sit eget id.
+              At consequat molestie lorem integer adipiscing elementum eros
+              dolor. Sit est aliquam diam nunc gravida massa nibh risus. Turpis
+              lectus scelerisque amet velit rhoncus metus morbi.
             </p>
           )}
         </div>

@@ -37,11 +37,11 @@ const FaqLast = () => {
   };
 
   return (
-    <div className="min-h-screen md:p-10 sm:p-5 rounded-lg shadow-lg bg-white text-black dark:bg-black dark:text-white transition-colors duration-300">
+    <div className="min-h-screen md:p-10 sm:p-5 rounded-lg shadow-lg bg-black text-white dark:bg-gray-800 dark:text-white transition-colors duration-300">
       <h1 className="text-center text-4xl mb-5 text-blue-700 dark:text-blue-400">
-        Frequently Asked Questions
+        Frequently Asked  <span className="text-pink-400">questions</span>
       </h1>
-      <div className="m-10 p-5 pl-10 rounded-lg shadow-lg bg-gray-100 dark:bg-gray-900 transition-colors duration-300">
+      <div className="m-10 p-5 pl-10 rounded-lg shadow-lg  bg-black text-white dark:bg-gray-900 transition-colors duration-300">
         {frequent.map((item) => (
           <div key={item.id} className="border-b border-gray-300 dark:border-gray-700 p-4">
             <div
@@ -55,7 +55,7 @@ const FaqLast = () => {
             </div>
 
             {openId === item.id && (
-              <p className="mt-3 text-gray-700 dark:text-gray-300 transition-all duration-300">
+              <p className="mt-3 text-white dark:text-gray-300 transition-all duration-300">
                 {item.answer}
               </p>
             )}
