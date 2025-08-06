@@ -1,18 +1,29 @@
+"use client";
+
+import React, { useState } from "react";
+import Link from "next/link";
+import { Moon, Sun, Menu, X } from "lucide-react";
+import { useTheme } from "next-themes";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Moon, Sun } from "lucide-react";
-import { useTheme } from "next-themes";
-import Link from "next/link";
 
 const Navbar = () => {
   const { setTheme } = useTheme();
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  const navLinks = [
+    { path: "/", label: "Home" },
+    { path: "/about", label: "About" },
+    { path: "/contact", label: "Contact" },
+    { path: "/login", label: "Login" },
+  ];
 
   return (
-    <div className="sticky">
+    <div className="sticky top-0 z-50">
       <nav className="bg-white dark:bg-gray-900 p-4 shadow-md">
         <div className="container mx-auto flex justify-between items-center">
           {/* Logo */}
@@ -20,38 +31,71 @@ const Navbar = () => {
             <Link href="/">ZipBoard</Link>
           </div>
 
-          {/* Nav links + theme switch */}
-          <div className="space-x-4 flex items-center">
-            {["/", "/about", "/contact", "/login"].map((path, i) => (
+          {/* Desktop Links */}
+          <div className="hidden md:flex space-x-4 items-center">
+            {navLinks.map((link) => (
               <Link
-                key={i}
-                href={path}
+                key={link.path}
+                href={link.path}
                 className="text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
               >
-                {path === "/"
-                  ? "Home"
-                  : path.replace("/", "").charAt(0).toUpperCase() + path.slice(2)}
+                {link.label}
               </Link>
             ))}
 
             {/* Theme switch */}
             <DropdownMenu>
               <DropdownMenuTrigger className="text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                <Moon className="cursor-pointer"/>
+                <Moon className="cursor-pointer" />
               </DropdownMenuTrigger>
               <DropdownMenuContent>
                 <DropdownMenuItem onClick={() => setTheme("light")}>
-                  <Sun className="mr-2 cursor-pointer" />
+                  <Sun className="mr-2" />
                   Light
                 </DropdownMenuItem>
                 <DropdownMenuItem onClick={() => setTheme("dark")}>
-                  <Moon className="mr-2 cursor-pointer" />
+                  <Moon className="mr-2" />
                   Dark
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           </div>
+
+          {/* Mobile hamburger */}
+          <div className="md:hidden flex items-center">
+            <button
+              onClick={() => setMobileOpen(!mobileOpen)}
+              className="text-gray-800 dark:text-gray-200"
+            >
+              {mobileOpen ? <X size={28} /> : <Menu size={28} />}
+            </button>
+          </div>
         </div>
+
+        {/* Mobile Menu */}
+        {mobileOpen && (
+          <div className="md:hidden mt-4 px-4 space-y-3">
+            {navLinks.map((link) => (
+              <Link
+                key={link.path}
+                href={link.path}
+                onClick={() => setMobileOpen(false)}
+                className="block text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+              >
+                {link.label}
+              </Link>
+            ))}
+            {/* Theme switch in mobile */}
+            <div className="flex space-x-4 pt-2">
+              <button onClick={() => setTheme("light")} className="flex items-center text-gray-800 dark:text-gray-200">
+                <Sun className="mr-2" /> Light
+              </button>
+              <button onClick={() => setTheme("dark")} className="flex items-center text-gray-800 dark:text-gray-200">
+                <Moon className="mr-2" /> Dark
+              </button>
+            </div>
+          </div>
+        )}
       </nav>
     </div>
   );
