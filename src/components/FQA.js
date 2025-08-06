@@ -37,6 +37,8 @@ const FQA = () => {
   };
 
   return (
+    <section id="fqa">
+
     <div className="min-h-screen md:p-10 sm:p-5 rounded-lg shadow-lg bg-white dark:bg-gray-900 transition-colors duration-300">
       <h1 className="text-center mb-5 text-3xl text-pink-800 dark:text-pink-400">
         Frequently asked <span className="text-pink-500">questions</span>
@@ -67,6 +69,8 @@ const FQA = () => {
         </div>
       ))}
     </div>
+    
+    </section>
   );
 };
 

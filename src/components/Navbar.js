@@ -19,7 +19,7 @@ const Navbar = () => {
     { path: "/", label: "Home" },
     { path: "/", label: "About" },
     { path: "/", label: "Contact" },
-    { path: "/", label: "FQA" },
+    { path: "#fqa", label: "FQA" },
     { path: "/", label: "Login" },
   ];
 
@@ -49,7 +49,7 @@ const Navbar = () => {
               <DropdownMenuTrigger className="text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                 <Moon className="cursor-pointer" />
               </DropdownMenuTrigger>
-              <DropdownMenuContent>
+              <DropdownMenuContent >
                 <DropdownMenuItem onClick={() => setTheme("light")}>
                   <Sun className="mr-2" />
                   Light
