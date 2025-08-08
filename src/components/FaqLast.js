@@ -1,33 +1,7 @@
 "use client";
 import React, { useState } from "react";
 
-const frequent = [
-  {
-    id: "1",
-    question: "Q1. Lorem ipsum dolor sit amet?",
-    answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-  },
-  {
-    id: "2",
-    question: "Q2. Lorem ipsum dolor sit amet?",
-    answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-  },
-  {
-    id: "3",
-    question: "Q3. Lorem ipsum dolor sit amet?",
-    answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-  },
-  {
-    id: "4",
-    question: "Q4. Lorem ipsum dolor sit amet?",
-    answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-  },
-  {
-    id: "5",
-    question: "Q5. Lorem ipsum dolor sit amet?",
-    answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-  },
-];
+import { accordionItems } from "@/components/Base.js";
 
 const FaqLast = () => {
   const [openId, setOpenId] = useState(null);
@@ -42,21 +16,21 @@ const FaqLast = () => {
         Frequently Asked  <span className="text-pink-400">questions</span>
       </h1>
       <div className="m-10 p-5 pl-10 rounded-lg shadow-lg  bg-black text-white dark:bg-gray-900 transition-colors duration-300">
-        {frequent.map((item) => (
+        {accordionItems.map((item) => (
           <div key={item.id} className="border-b border-gray-300 dark:border-gray-700 p-4">
             <div
               className="flex justify-between items-center cursor-pointer"
               onClick={() => toggle(item.id)}
             >
-              <h3 className="text-lg font-semibold">{item.question}</h3>
-              <span className="text-2xl font-bold text-blue-500 dark:text-blue-300">
+              <h3 className="text-lg font-semibold !text-white ">{item.title}</h3>
+              <span className="text-2xl font-bold  text-blue-500 dark:text-blue-300">
                 {openId === item.id ? "-" : "+"}
               </span>
             </div>
 
             {openId === item.id && (
               <p className="mt-3 text-white dark:text-gray-300 transition-all duration-300">
-                {item.answer}
+                {item.content}
               </p>
             )}
           </div>

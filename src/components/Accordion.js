@@ -1,33 +1,7 @@
 "use client";
 import React, { useState } from 'react';
+import {accordionItems} from "@/components/Base.js"
 
-const accordionItems = [
-  {
-    id: 1,
-    title: "Q1. Lorem ipsum dolor sit amet consectetur?",
-    content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
-  },
-  {
-    id: 2,
-    title: "Q2. Lorem ipsum dolor sit amet consectetur?",
-    content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
-  },
-  {
-    id: 3,
-    title: "Q3. Lorem ipsum dolor sit amet consectetur?",
-    content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
-  },
-  {
-    id: 4,
-    title: "Q4. Lorem ipsum dolor sit amet consectetur?",
-    content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
-  },
-  {
-    id: 5,
-    title: "Q5. Lorem ipsum dolor sit amet consectetur?",
-    content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
-  },
-];
 
 const Accordion = () => {
   const [openItems, setOpenItems] = useState(

@@ -27,7 +27,7 @@ const Navbar = () => {
     <div className="sticky top-0 z-50">
       <nav className="bg-white dark:bg-gray-900 p-4 shadow-md">
         <div className="container mx-auto flex justify-between items-center">
-          {/* Logo */}
+          {/* Logo Text */}
           <div className="flex-shrink-0 hover:scale-110 text-xl font-bold text-gray-900 dark:text-white tracking-tighter bg-gradient-to-r from-gray-100 to-amber-200 dark:from-gray-800 dark:to-yellow-900 rounded-xl px-4 py-1 transition-all duration-300">
             <Link href="/">ZipBoard</Link>
           </div>
